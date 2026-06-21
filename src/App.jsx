@@ -1,5 +1,7 @@
 import "./App.css";
 
+const base = (path) => import.meta.env.BASE_URL + path.replace(/^\//, "");
+
 /* ===== EDITABLE DATA ===== */
 
 const PROFILE = {
@@ -13,9 +15,9 @@ const PROFILE = {
     "Learning MongoDB and MySQL for database management",
     "Practicing Data Structures & Algorithms",
   ],
-  resumeLink: "/resume.pdf",
+  resumeLink: base("resume.pdf"),
   githubLink: "https://github.com/prince585",
-  profilePic: "/MyPfp.jpeg",
+  profilePic: base("MyPfp.jpeg"),
 };
 
 const TECH_STACK = {
@@ -95,12 +97,12 @@ const CERTIFICATES = [
   {
     title: "Projection Training & Placement Program",
     desc: "C++, OOP, communication, resume building, mock interviews & CS fundamentals.",
-    img: "/cert.jpg",
+    img: base("cert.jpg"),
   },
   {
     title: "Website Development Tutorial",
     desc: "Full website development course by Infosys Springboard.",
-    img: "/cert.jpg",
+    img: base("cert.jpg"),
   },
 ];
 
