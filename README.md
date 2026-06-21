@@ -1,16 +1,39 @@
-# React + Vite
+# Portfolio — Prince Verma
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website built with **React** and **Vite**. Features a warm editorial-inspired design with sections for about, projects, education, certificates, and contact.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** — UI framework
+- **Vite 8** — build tool
+- **CSS Custom Properties** — theming (warm cream / crail orange)
 
-## React Compiler
+## Sections
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Section   | Description |
+|-----------|-------------|
+| About     | Profile pic, intro, summary, GitHub contribution graph, tech stack table |
+| Projects  | 4 project cards with GitHub & Visit links |
+| Education | Timeline with college, 12th, 10th grade details |
+| Certs     | Certificate images with descriptions |
+| Contact   | Bio with internship callout + social link buttons |
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Customize
+
+All content lives at the top of `src/App.jsx` in plain JS objects (`PROFILE`, `PROJECTS`, `EDUCATION`, `CERTIFICATES`, `CONTACT`, `TECH_STACK`). Edit those to update the site without touching JSX or CSS.
