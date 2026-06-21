@@ -530,34 +530,40 @@
 
 /* Mobile (< 768) */
 @media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
   /* Navbar */
   .navbar {
-    padding: 12px 16px;
+    padding: 10px 16px;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
   }
   .logo {
     font-size: 18px;
   }
   .navbar ul {
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
     order: 3;
+    margin-top: 2px;
   }
   .navbar ul a {
-    font-size: 12px;
+    font-size: 13px;
+    padding: 4px 0;
   }
 
   /* Sections */
   .section {
-    padding: 40px 16px;
+    padding: 36px 16px;
   }
   .section-title {
     font-size: 22px;
-    margin: 0 0 32px;
+    margin: 0 0 28px;
   }
 
   /* About */
@@ -565,65 +571,90 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 28px;
+    gap: 24px;
   }
   .profile-frame {
-    width: 160px;
-    height: 160px;
+    width: 150px;
+    height: 150px;
   }
   .about-actions {
     flex-direction: row;
     gap: 10px;
+    width: 100%;
   }
   .about-actions .btn {
     flex: 1;
     min-width: 0;
-    font-size: 12px;
-    padding: 8px 14px;
+    font-size: 13px;
+    padding: 10px 12px;
+    white-space: nowrap;
   }
   .about-right {
     text-align: center;
+    width: 100%;
   }
   .about-right h1 {
-    font-size: 32px;
-    letter-spacing: -0.8px;
+    font-size: 30px;
+    letter-spacing: -0.5px;
   }
   .subtitle {
-    font-size: 15px;
+    font-size: 14px;
+    margin-bottom: 18px;
   }
   .summary-list {
     text-align: left;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
   .summary-list li {
     font-size: 14px;
+    padding-left: 18px;
   }
 
   /* Tech Table */
+  .tech-table {
+    margin-top: 8px;
+  }
   .tech-table-row {
     grid-template-columns: 1fr;
+    border-radius: 8px;
   }
   .tech-table-cell {
     border-right: none;
     border-bottom: 1px solid var(--border);
-    padding: 18px 12px;
+    padding: 14px 12px;
   }
   .tech-table-cell:last-child {
     border-bottom: none;
+  }
+  .tech-label {
+    font-size: 10px;
+    margin-bottom: 10px;
   }
   .tech-icons img {
     height: 22px;
   }
 
+  /* GitHub Graph */
+  .github-graph {
+    margin-top: 20px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .github-graph img {
+    width: 100%;
+    height: auto;
+    min-height: 60px;
+  }
+
   /* Projects */
   .projects-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
   }
   .project-thumb {
-    height: 130px;
+    height: 120px;
   }
   .project-body {
     padding: 14px 16px;
@@ -632,35 +663,40 @@
     font-size: 15px;
   }
   .project-body p {
-    font-size: 12px;
+    font-size: 13px;
   }
   .project-actions {
     padding: 12px 16px;
+    gap: 8px;
   }
   .project-actions .btn {
     flex: 1;
+    font-size: 13px;
+    padding: 10px 12px;
   }
 
   /* Timeline */
   .timeline::before {
-    left: 14px;
+    left: 12px;
   }
   .timeline-item.left,
   .timeline-item.right {
     flex-direction: row;
     text-align: left;
-    padding-left: 36px;
-    margin-bottom: 28px;
+    padding-left: 28px;
+    margin-bottom: 24px;
   }
   .timeline-content {
     width: 100%;
     margin: 0 !important;
+    padding: 4px 0;
   }
   .timeline-marker {
-    left: 14px;
+    left: 12px;
     transform: translateX(-50%);
     font-size: 10px;
-    padding: 4px 10px;
+    padding: 3px 10px;
+    top: 2px;
   }
   .timeline-content h3 {
     font-size: 14px;
@@ -668,32 +704,39 @@
   .timeline-school {
     font-size: 13px;
   }
+  .timeline-year {
+    font-size: 12px;
+  }
 
   /* Certificates */
   .certs-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
   }
   .cert-img-wrap {
     aspect-ratio: 1.3 / 1;
   }
   .cert-body {
-    padding: 16px 18px 20px;
+    padding: 14px 16px 18px;
   }
   .cert-body h3 {
     font-size: 14px;
   }
   .cert-body p {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   /* Contact */
   .contact-inner {
     flex-direction: column;
-    gap: 28px;
+    gap: 24px;
   }
   .contact-bio p {
     font-size: 14px;
+    margin-bottom: 14px;
+  }
+  .contact-bio .btn {
+    width: 100%;
   }
   .contact-socials {
     min-width: 0;
@@ -701,12 +744,12 @@
   }
   .social-btn {
     padding: 12px 16px;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   /* Footer */
   .footer {
-    padding: 20px 16px;
+    padding: 18px 16px;
     font-size: 12px;
   }
 }
@@ -714,16 +757,22 @@
 /* Small phones (< 400) */
 @media (max-width: 400px) {
   .profile-frame {
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
   }
   .about-right h1 {
-    font-size: 26px;
+    font-size: 24px;
   }
   .about-actions {
     flex-direction: column;
   }
   .about-actions .btn {
     width: 100%;
+  }
+  .project-actions {
+    flex-direction: column;
+  }
+  .project-actions .btn {
+    justify-content: center;
   }
 }
