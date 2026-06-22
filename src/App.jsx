@@ -22,26 +22,26 @@ const PROFILE = {
 
 const TECH_STACK = {
   have: [
-    { name: "Java",       icon: "https://skillicons.dev/icons?i=java" },
-    { name: "HTML5",      icon: "https://skillicons.dev/icons?i=html" },
-    { name: "CSS3",       icon: "https://skillicons.dev/icons?i=css" },
+    { name: "Java", icon: "https://skillicons.dev/icons?i=java" },
+    { name: "HTML5", icon: "https://skillicons.dev/icons?i=html" },
+    { name: "CSS3", icon: "https://skillicons.dev/icons?i=css" },
     { name: "JavaScript", icon: "https://skillicons.dev/icons?i=js" },
-    { name: "Git",        icon: "https://skillicons.dev/icons?i=git" },
-    { name: "GitHub",     icon: "https://skillicons.dev/icons?i=github" },
+    { name: "Git", icon: "https://skillicons.dev/icons?i=git" },
+    { name: "GitHub", icon: "https://skillicons.dev/icons?i=github" },
   ],
   learning: [
     { name: "Spring Boot", icon: "https://skillicons.dev/icons?i=spring" },
-    { name: "React",       icon: "https://skillicons.dev/icons?i=react" },
-    { name: "MongoDB",     icon: "https://skillicons.dev/icons?i=mongodb" },
-    { name: "MySQL",       icon: "https://skillicons.dev/icons?i=mysql" },
-    { name: "Docker",      icon: "https://skillicons.dev/icons?i=docker" },
-    { name: "Maven",       icon: "https://skillicons.dev/icons?i=maven" },
+    { name: "React", icon: "https://skillicons.dev/icons?i=react" },
+    { name: "MongoDB", icon: "https://skillicons.dev/icons?i=mongodb" },
+    { name: "MySQL", icon: "https://skillicons.dev/icons?i=mysql" },
+    { name: "Docker", icon: "https://skillicons.dev/icons?i=docker" },
+    { name: "Maven", icon: "https://skillicons.dev/icons?i=maven" },
   ],
   building: [
-    { name: "Java",        icon: "https://skillicons.dev/icons?i=java" },
+    { name: "Java", icon: "https://skillicons.dev/icons?i=java" },
     { name: "Spring Boot", icon: "https://skillicons.dev/icons?i=spring" },
-    { name: "MongoDB",     icon: "https://skillicons.dev/icons?i=mongodb" },
-    { name: "React",       icon: "https://skillicons.dev/icons?i=react" },
+    { name: "MongoDB", icon: "https://skillicons.dev/icons?i=mongodb" },
+    { name: "React", icon: "https://skillicons.dev/icons?i=react" },
   ],
 };
 
@@ -100,6 +100,11 @@ const CERTIFICATES = [
     img: base("cert.jpg"),
   },
   {
+    title: "Java Object Oriented Programming",
+    desc: "Learn Object Oriented Programming Concept With Exercise",
+    img: base("cert.jpg"),
+  },
+  {
     title: "Website Development Tutorial",
     desc: "Full website development course by Infosys Springboard.",
     img: base("cert.jpg"),
@@ -110,7 +115,11 @@ const CONTACT = {
   email: "princeverma.codes@gmail.com",
   phone: "+91 99932 85874",
   socials: [
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/prince-verma-b7a2b12b0/", icon: "in" },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/prince-verma-b7a2b12b0/",
+      icon: "in",
+    },
     { name: "GitHub", url: "https://github.com/prince585", icon: "gh" },
     { name: "Twitter / X", url: "https://x.com/prinxeverma", icon: "x" },
     { name: "Gmail", url: "mailto:princeverma.codes@gmail.com", icon: "mail" },
@@ -121,7 +130,13 @@ const CONTACT = {
 /* ===== COMPONENTS ===== */
 
 function Navbar() {
-  const sections = ["About", "Projects", "Education", "Certificates", "Contact"];
+  const sections = [
+    "About",
+    "Projects",
+    "Education",
+    "Certificates",
+    "Contact",
+  ];
   return (
     <nav className="navbar">
       <span className="logo">Prince.</span>
@@ -144,7 +159,12 @@ function AboutMe() {
           <img src={PROFILE.profilePic} alt={PROFILE.name} />
         </div>
         <div className="about-actions">
-          <a href={PROFILE.githubLink} target="_blank" rel="noreferrer" className="btn btn-outline btn-sm">
+          <a
+            href={PROFILE.githubLink}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-outline btn-sm"
+          >
             <GitHubIcon /> GitHub
           </a>
           <a href={PROFILE.resumeLink} download className="btn btn-primary">
@@ -216,10 +236,20 @@ function Projects() {
               <p>{p.desc}</p>
             </div>
             <div className="project-actions">
-              <a href={p.github} target="_blank" rel="noreferrer" className="btn btn-outline btn-sm">
+              <a
+                href={p.github}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-outline btn-sm"
+              >
                 <GitHubIcon /> GitHub
               </a>
-              <a href={p.live} target="_blank" rel="noreferrer" className="btn btn-primary btn-sm">
+              <a
+                href={p.live}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-primary btn-sm"
+              >
                 Visit
               </a>
             </div>
@@ -236,7 +266,10 @@ function Education() {
       <h2 className="section-title">Education</h2>
       <div className="timeline">
         {EDUCATION.map((e, i) => (
-          <div key={i} className={`timeline-item ${i % 2 === 0 ? "left" : "right"}`}>
+          <div
+            key={i}
+            className={`timeline-item ${i % 2 === 0 ? "left" : "right"}`}
+          >
             <div className="timeline-marker">{e.level}</div>
             <div className="timeline-content">
               <h3>{e.title}</h3>
@@ -280,12 +313,12 @@ function Contact() {
           <p>
             Hi! I'm <strong>Prince Verma</strong>, a Computer Science student
             looking for <strong>internship opportunities</strong> where I can
-            apply my skills in Java, Spring Boot, and web development to
-            solve real-world problems.
+            apply my skills in Java, Spring Boot, and web development to solve
+            real-world problems.
           </p>
           <p>
-            Whether you have a project idea, a position to discuss, or just
-            want to connect — feel free to reach out.
+            Whether you have a project idea, a position to discuss, or just want
+            to connect — feel free to reach out.
           </p>
           <a href={`mailto:${CONTACT.email}`} className="btn btn-primary">
             Email Me
@@ -293,7 +326,13 @@ function Contact() {
         </div>
         <div className="contact-socials">
           {CONTACT.socials.map((s) => (
-            <a key={s.name} href={s.url} target="_blank" rel="noreferrer" className="social-btn">
+            <a
+              key={s.name}
+              href={s.url}
+              target="_blank"
+              rel="noreferrer"
+              className="social-btn"
+            >
               <SocialIcon id={s.icon} />
               {s.name}
             </a>
@@ -307,7 +346,9 @@ function Contact() {
 function Footer() {
   return (
     <footer className="footer">
-      <p>&copy; {new Date().getFullYear()} {PROFILE.name}. All rights reserved.</p>
+      <p>
+        &copy; {new Date().getFullYear()} {PROFILE.name}. All rights reserved.
+      </p>
     </footer>
   );
 }
@@ -359,13 +400,14 @@ function Cursor() {
       if (ringRef.current) ringRef.current.classList.add("cursor-ring--grow");
     };
     const onHoverOut = () => {
-      if (ringRef.current) ringRef.current.classList.remove("cursor-ring--grow");
+      if (ringRef.current)
+        ringRef.current.classList.remove("cursor-ring--grow");
     };
 
     document.addEventListener("mousemove", onMove);
 
     const interactives = document.querySelectorAll(
-      "a, button, .btn, input, textarea, .project-card, .cert-card, .social-btn"
+      "a, button, .btn, input, textarea, .project-card, .cert-card, .social-btn",
     );
     interactives.forEach((el) => {
       el.addEventListener("mouseenter", onHoverIn);
