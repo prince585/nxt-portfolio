@@ -51,24 +51,28 @@ const PROJECTS = [
     desc: "AI chatbot integrated with Google Gemini API. REST API backend with HTML/JS frontend.",
     github: "https://github.com/princecodes/chatbot-springboot",
     live: "#",
+    img: base("PortfolioProject.png"),
   },
   {
     title: "Google Store Clone",
     desc: "Responsive multi-page frontend clone using HTML, Tailwind CSS, JS with cart & auth.",
     github: "https://github.com/princecodes/google-store-clone",
     live: "#",
+    img: base("PortfolioProject.png"),
   },
   {
     title: "Banking App (Java Console)",
     desc: "Console-based banking system with deposit, withdrawal, balance checking & validation.",
     github: "https://github.com/princecodes/banking-app-java",
     live: "#",
+    img: base("cert.jpg"),
   },
   {
     title: "Portfolio Website",
     desc: "Personal portfolio with clean responsive UI showcasing projects and skills.",
-    github: "https://github.com/princecodes/nxt-portfolio",
+    github: "https://github.com/prince585/nxt-portfolio",
     live: "https://prince585.github.io/nxt-portfolio/",
+    img: base("PortfolioProject.png"),
   },
 ];
 
@@ -111,6 +115,21 @@ const CERTIFICATES = [
   },
 ];
 
+const ACHIEVEMENTS = [
+  {
+    title: "Achievement Title 1",
+    desc: "Description of your achievement goes here.",
+  },
+  {
+    title: "Achievement Title 2",
+    desc: "Description of your achievement goes here.",
+  },
+  {
+    title: "Achievement Title 3",
+    desc: "Description of your achievement goes here.",
+  },
+];
+
 const CONTACT = {
   email: "princeverma.codes@gmail.com",
   phone: "+91 99932 85874",
@@ -135,6 +154,7 @@ function Navbar() {
     "Projects",
     "Education",
     "Certificates",
+    "Achievements",
     "Contact",
   ];
   return (
@@ -229,7 +249,7 @@ function Projects() {
         {PROJECTS.map((p) => (
           <div key={p.title} className="project-card">
             <div className="project-thumb">
-              <div className="thumb-placeholder">{p.title[0]}</div>
+              <img src={p.img} alt={p.title} />
             </div>
             <div className="project-body">
               <h3>{p.title}</h3>
@@ -296,6 +316,29 @@ function Certificates() {
             <div className="cert-body">
               <h3>{c.title}</h3>
               <p>{c.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function Achievements() {
+  return (
+    <section id="achievements" className="section">
+      <h2 className="section-title">Achievements</h2>
+      <div className="achievements-grid">
+        {ACHIEVEMENTS.map((a, i) => (
+          <div key={i} className="achievement-card">
+            <div className="achievement-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            </div>
+            <div className="achievement-body">
+              <h3>{a.title}</h3>
+              <p>{a.desc}</p>
             </div>
           </div>
         ))}
@@ -407,7 +450,7 @@ function Cursor() {
     document.addEventListener("mousemove", onMove);
 
     const interactives = document.querySelectorAll(
-      "a, button, .btn, input, textarea, .project-card, .cert-card, .social-btn",
+      "a, button, .btn, input, textarea, .project-card, .cert-card, .achievement-card, .social-btn",
     );
     interactives.forEach((el) => {
       el.addEventListener("mouseenter", onHoverIn);
@@ -456,6 +499,7 @@ export default function App() {
         <Projects />
         <Education />
         <Certificates />
+        <Achievements />
         <Contact />
       </main>
       <Footer />
