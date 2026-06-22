@@ -100,7 +100,7 @@ const CERTIFICATES = [
     img: base("cert.jpg"),
   },
   {
-    title: "Java Object Oriented Programming",
+    title: "Udemy : Java Object Oriented Programming",
     desc: "Learn Object Oriented Programming Concept With Exercise",
     img: base("cert.jpg"),
   },
