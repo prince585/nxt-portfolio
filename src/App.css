@@ -223,12 +223,18 @@
   text-align: left;
   margin-bottom: 12px;
 }
-.github-graph img {
-  width: 100%;
+.github-graph .graph-wrap {
+  overflow: hidden;
   border-radius: 8px;
   border: 1px solid var(--border);
   background: var(--surface);
+}
+.github-graph .graph-wrap img {
   display: block;
+  width: 100%;
+  margin-top: -36px;
+  margin-bottom: -10px;
+  background: var(--surface);
 }
 
 /* ===== Buttons ===== */
@@ -397,9 +403,9 @@
 /* ===== Certificates ===== */
 .certs-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  max-width: 700px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  max-width: 780px;
   margin: 0 auto;
 }
 .cert-card {
@@ -408,40 +414,112 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.25s, box-shadow 0.25s;
+  transition: border-color 0.25s;
   background: var(--surface);
+  cursor: pointer;
 }
 .cert-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 4px 20px rgba(217, 119, 87, 0.08);
 }
-.cert-img-wrap {
-  width: 100%;
-  aspect-ratio: 1.4 / 1;
+.cert-card .cert-img-wrap {
+  height: 145px;
   overflow: hidden;
   background: var(--code-bg);
   border-bottom: 1px solid var(--border);
 }
-.cert-img-wrap img {
+.cert-card .cert-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 .cert-body {
-  padding: 20px 22px 24px;
-  text-align: center;
+  padding: 14px 18px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .cert-body h3 {
-  font-size: 15px;
-  margin: 0 0 8px;
+  font-size: 14px;
+  margin: 0 0 4px;
+  color: var(--text-h);
+  font-weight: 600;
+  line-height: 1.35;
+}
+.cert-issuer {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Cert Modal */
+.cert-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 24px;
+  backdrop-filter: blur(2px);
+}
+.cert-modal {
+  background: var(--surface);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+.cert-modal img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  background: var(--code-bg);
+  display: block;
+}
+.cert-modal-footer {
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cert-modal-footer h3 {
+  font-size: 14px;
+  margin: 0;
   color: var(--text-h);
   font-weight: 600;
 }
-.cert-body p {
-  font-size: 13px;
-  line-height: 1.6;
-  color: var(--text);
+.cert-modal-footer span {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+}
+.cert-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-h);
+  z-index: 1;
+}
+.cert-modal-close:hover {
+  background: var(--code-bg);
+}
+.cert-modal {
+  position: relative;
 }
 
 /* ===== Achievements ===== */
@@ -687,10 +765,11 @@
     max-width: 100%;
     overflow: hidden;
   }
-  .github-graph img {
+  .github-graph .graph-wrap img {
     width: 100%;
     height: auto;
-    min-height: 60px;
+    margin-top: -30px;
+    margin-bottom: -8px;
   }
 
   /* Projects */
@@ -755,67 +834,37 @@
 
   /* Certificates */
   .certs-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 14px;
   }
-  .cert-img-wrap {
-    aspect-ratio: 1.3 / 1;
+  .cert-card .cert-img-wrap {
+    height: 120px;
   }
   .cert-body {
-    padding: 14px 16px 18px;
+    padding: 12px 14px 14px;
   }
   .cert-body h3 {
-    font-size: 14px;
-  }
-  .cert-body p {
     font-size: 13px;
+  }
+  .cert-issuer {
+    font-size: 11px;
   }
 
   /* Achievements */
   .achievements-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .achievement-card {
-    padding: 18px;
-  }
-  .achievement-body h3 {
-    font-size: 14px;
-  }
-  .achievement-body p {
-    font-size: 13px;
-  }
-
-  /* Contact */
-  .contact-inner {
-    flex-direction: column;
-    gap: 24px;
-  }
-  .contact-bio p {
-    font-size: 14px;
-    margin-bottom: 14px;
-  }
-  .contact-bio .btn {
-    width: 100%;
-  }
-  .contact-socials {
-    min-width: 0;
-    width: 100%;
-  }
-  .social-btn {
-    padding: 12px 16px;
-    font-size: 14px;
-  }
-
-  /* Footer */
-  .footer {
-    padding: 18px 16px;
-    font-size: 12px;
   }
 }
 
 /* Small phones (< 400) */
 @media (max-width: 400px) {
+  .certs-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .cert-card .cert-img-wrap {
+    height: 160px;
+  }
   .profile-frame {
     width: 120px;
     height: 120px;

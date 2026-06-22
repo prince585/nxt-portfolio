@@ -47,25 +47,25 @@ const TECH_STACK = {
 
 const PROJECTS = [
   {
-    title: "ChatBot Using Spring Boot",
-    desc: "AI chatbot integrated with Google Gemini API. REST API backend with HTML/JS frontend.",
-    github: "https://github.com/princecodes/chatbot-springboot",
-    live: "#",
-    img: base("PortfolioProject.png"),
+    title: "Google Store Clone : Minor Project-I",
+    desc: "E-commerce web application inspired by Google Store, built with React and TypeScript. Features JWT authentication, localStorage session management, protected routes, shopping cart functionality, and a responsive user interface.",
+    github: "https://github.com/prince585/google-store-clone-minor-project",
+    live: "https://google-store-clone-minor-project.vercel.app/",
+    img: base("GoogleStoreClone.png"),
   },
   {
-    title: "Google Store Clone",
-    desc: "Responsive multi-page frontend clone using HTML, Tailwind CSS, JS with cart & auth.",
-    github: "https://github.com/princecodes/google-store-clone",
-    live: "#",
-    img: base("PortfolioProject.png"),
+    title: "EcoTracker Smart Municipality : Minor Project-II",
+    desc: "Smart municipality waste management system with real-time vehicle tracking, location-based notifications, JWT authentication, MongoDB Atlas, and interactive Leaflet maps.",
+    github: "https://github.com/prince585/MinorProject-II",
+    live: "https://sustainability-indol-two.vercel.app/",
+    img: base("EcoTracker.png"),
   },
   {
     title: "Banking App (Java Console)",
     desc: "Console-based banking system with deposit, withdrawal, balance checking & validation.",
-    github: "https://github.com/princecodes/banking-app-java",
+    github: "https://github.com/princecodes/BankingApp",
     live: "#",
-    img: base("cert.jpg"),
+    img: base("BankingApp.png"),
   },
   {
     title: "Portfolio Website",
@@ -99,34 +99,41 @@ const EDUCATION = [
 
 const CERTIFICATES = [
   {
-    title: "Projection Training & Placement Program",
-    desc: "C++, OOP, communication, resume building, mock interviews & CS fundamentals.",
+    title: "C & C++ Programming Training",
+    issuer: "Training Institute",
+    img: base("Project-Training.jpg"),
+  },
+  {
+    title: "Java Object Oriented Programming",
+    issuer: "Udemy",
     img: base("cert.jpg"),
   },
   {
-    title: "Udemy : Java Object Oriented Programming",
-    desc: "Learn Object Oriented Programming Concept With Exercise",
-    img: base("cert.jpg"),
+    title: "Responsive Web Design",
+    issuer: "freeCodeCamp",
+    img: base("freecodecamp-rwd.jpg"),
+  },
+  {
+    title: "GenAI Job Simulation",
+    issuer: "BCG's GenAI on Forage",
+    img: base("GenAI Job Simulation.jpg"),
+  },
+  {
+    title: "HTML & CSS Bootcamp",
+    issuer: "LearnTube",
+    img: base("LU-WEBBOOTCAMP.jpg"),
   },
   {
     title: "Website Development Tutorial",
-    desc: "Full website development course by Infosys Springboard.",
-    img: base("cert.jpg"),
+    issuer: "Infosys Springboard",
+    img: base("Website-Development-Infosys.png"),
   },
 ];
 
 const ACHIEVEMENTS = [
   {
-    title: "Achievement Title 1",
-    desc: "Description of your achievement goes here.",
-  },
-  {
-    title: "Achievement Title 2",
-    desc: "Description of your achievement goes here.",
-  },
-  {
-    title: "Achievement Title 3",
-    desc: "Description of your achievement goes here.",
+    title: "Google The Big Code 2026",
+    desc: "Advanced to Round 1 of Google's The Big Code 2026 after qualifying among the Top 15,000 students in India.",
   },
 ];
 
@@ -230,11 +237,13 @@ function AboutMe() {
         </div>
         <div className="github-graph">
           <span className="tech-label">GitHub Contributions</span>
-          <img
-            src="https://ghchart.rshah.org/d97757/prince585"
-            alt="Prince's GitHub contribution graph"
-            loading="lazy"
-          />
+          <div className="graph-wrap">
+            <img
+              src="https://github-contributions-api.deno.dev/prince585.svg"
+              alt="Prince's GitHub contribution graph"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -304,22 +313,56 @@ function Education() {
 }
 
 function Certificates() {
+  const [preview, setPreview] = useState(null);
   return (
     <section id="certificates" className="section">
       <h2 className="section-title">Certificates</h2>
       <div className="certs-grid">
         {CERTIFICATES.map((c) => (
-          <div key={c.title} className="cert-card">
+          <div
+            key={c.title}
+            className="cert-card"
+            onClick={() => setPreview(c)}
+          >
             <div className="cert-img-wrap">
               <img src={c.img} alt={c.title} />
             </div>
             <div className="cert-body">
               <h3>{c.title}</h3>
-              <p>{c.desc}</p>
+              <span className="cert-issuer">{c.issuer}</span>
             </div>
           </div>
         ))}
       </div>
+      {preview && (
+        <div className="cert-overlay" onClick={() => setPreview(null)}>
+          <div className="cert-modal" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="cert-modal-close"
+              onClick={() => setPreview(null)}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                width="20"
+                height="20"
+              >
+                <path
+                  d="M18 6L6 18M6 6l12 12"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  fill="none"
+                />
+              </svg>
+            </button>
+            <img src={preview.img} alt={preview.title} />
+            <div className="cert-modal-footer">
+              <h3>{preview.title}</h3>
+              <span>{preview.issuer}</span>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -332,7 +375,12 @@ function Achievements() {
         {ACHIEVEMENTS.map((a, i) => (
           <div key={i} className="achievement-card">
             <div className="achievement-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                width="28"
+                height="28"
+              >
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
             </div>
@@ -423,7 +471,7 @@ function SocialIcon({ id }) {
 
 /* ===== CURSOR ===== */
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Cursor() {
   const dotRef = useRef(null);
@@ -450,7 +498,7 @@ function Cursor() {
     document.addEventListener("mousemove", onMove);
 
     const interactives = document.querySelectorAll(
-      "a, button, .btn, input, textarea, .project-card, .cert-card, .achievement-card, .social-btn",
+      "a, button, .btn, input, textarea, .project-card, .achievement-card, .social-btn",
     );
     interactives.forEach((el) => {
       el.addEventListener("mouseenter", onHoverIn);
