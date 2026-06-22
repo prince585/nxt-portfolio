@@ -67,8 +67,8 @@ const PROJECTS = [
   {
     title: "Portfolio Website",
     desc: "Personal portfolio with clean responsive UI showcasing projects and skills.",
-    github: "https://github.com/princecodes/portfolio",
-    live: "#",
+    github: "https://github.com/princecodes/nxt-portfolio",
+    live: "https://prince585.github.io/nxt-portfolio/",
   },
 ];
 
@@ -77,7 +77,7 @@ const EDUCATION = [
     level: "College",
     title: "B.Tech in Computer Science & Engineering",
     school: "Mahakal Institute of Technology and Management, Ujjain",
-    year: "Sep 2023 — Present",
+    year: "Sep 2026 — Present",
   },
   {
     level: "12th Grade",
@@ -89,7 +89,7 @@ const EDUCATION = [
     level: "10th Grade",
     title: "Secondary (Class 10)",
     school: "Bright Future Academy School, Madhya Pradesh",
-    year: "Completed Jun 2021 · 65%",
+    year: "Completed Jun 2021 · 62%",
   },
 ];
 
