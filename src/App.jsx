@@ -104,6 +104,11 @@ const CERTIFICATES = [
     img: base("Project-Training.jpg"),
   },
   {
+    title: "Learn Programming with Java - An Interactive Way",
+    issuer: "Infosys Springboard",
+    img: base("java-certificate.jpg"),
+  },
+  {
     title: "Java Object Oriented Programming",
     issuer: "Udemy",
     img: base("cert.jpg"),
